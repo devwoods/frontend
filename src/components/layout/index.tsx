@@ -15,11 +15,13 @@ interface ILayout {
 export default function Layout({ children }: ILayout) {
   return (
     <Container>
-      <Box>
-        <Logo />
-        <ProfileCard />
-      </Box>
-      <Navigation />
+      <NavBar>
+        <Box>
+          <Logo />
+          <ProfileCard />
+        </Box>
+        <Navigation />
+      </NavBar>
       <Divider />
       <Box>{children}</Box>
       <a href="https://github.com/kimmihi">
@@ -41,6 +43,12 @@ export default function Layout({ children }: ILayout) {
 const Container = styled.div`
   display: flex;
   height: 100%;
+`;
+
+const NavBar = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const Divider = styled.div`
