@@ -11,7 +11,7 @@ export default function ProfileCard() {
 
 const Container = styled.div`
   width: 100%;
-  padding: 8px 12px;
+  padding: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;

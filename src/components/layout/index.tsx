@@ -46,15 +46,19 @@ const Container = styled.div`
 `;
 
 const NavBar = styled.div`
+  width: 350px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
 const Divider = styled.div`
+  height: 100vh;
   border-left: 1px solid #cce0ff;
 `;
 
 const Box = styled.div`
+  width: 100%;
   padding: 12px;
 `;

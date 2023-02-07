@@ -36,11 +36,18 @@ export default function Navigation() {
 const Continaer = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin-top: 4rem;
 `;
 
 const NavItem = styled.div`
   color: #333333;
-  font-size: 18px;
+  font-size: 28px;
+  font-weight: 500;
+  margin: 15px 0px;
+  &:hover {
+    color: #737373;
+  }
 `;
 
 const Title = styled.h1`

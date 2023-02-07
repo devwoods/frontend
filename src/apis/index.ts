@@ -12,7 +12,7 @@ export const getPostList = async (params?: GetPostListParams) => {
 };
 
 export const getPostListByCategory = async (categoryId: number) => {
-  const response = await axios.get<AxiosResponse<PostList>>(
+  const response = await axios.get<PostList>(
     `${BASE_URL}/api/posts/category/${categoryId}`
   );
 

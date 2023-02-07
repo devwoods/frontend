@@ -15,8 +15,8 @@ export default function PostCard({ title, content }: IPostCard) {
 }
 
 const Container = styled.div`
-  min-width: 500px;
-  max-width: 1000px;
+  width: 800px;
+  height: 150px;
   padding: 12px;
   margin: 20px 0px;
   border-radius: 16px;
@@ -29,6 +29,6 @@ const Content = styled.p`
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   line-height: 1.5em;
 `;
