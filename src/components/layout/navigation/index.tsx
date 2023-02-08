@@ -24,32 +24,44 @@ export default function Navigation() {
 
   return (
     <Continaer>
+      <Title>Category</Title>
       {categoryList.map((category) => (
-        <NavItem key={category.id}>
-          <Link href={`/posts/category/${category.id}`}>{category.name}</Link>
-        </NavItem>
+        <Link
+          key={category.id}
+          href={`/posts/category/${category.id}`}
+          style={{ width: "100%" }}
+        >
+          <NavItem>{category.name}</NavItem>
+        </Link>
       ))}
     </Continaer>
   );
 }
 
 const Continaer = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-top: 4rem;
+  align-items: start;
+  margin-top: 2rem;
 `;
 
 const NavItem = styled.div`
-  color: #333333;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  color: #666666;
   font-size: 28px;
-  font-weight: 500;
-  margin: 15px 0px;
+  font-weight: 400;
+  cursor: pointer;
   &:hover {
-    color: #737373;
+    color: ${colors.primary.main};
+    background-color: #cce0ff;
   }
 `;
 
-const Title = styled.h1`
-  color: ${colors.primary.main};
+const Title = styled.p`
+  color: #666666;
+  padding: 0px 12px;
+  font-weight: 700;
 `;

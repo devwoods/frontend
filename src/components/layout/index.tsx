@@ -55,7 +55,7 @@ const NavBar = styled.div`
 
 const Divider = styled.div`
   height: 100vh;
-  border-left: 1px solid #cce0ff;
+  border-left: 1px solid #e6e6e6;
 `;
 
 const Box = styled.div`
