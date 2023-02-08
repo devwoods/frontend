@@ -1,4 +1,3 @@
-import type { AxiosResponse } from "axios";
 import type { GetPostListParams } from "src/types/api";
 import type { PostList } from "src/types/post";
 import axios from "axios";
@@ -6,7 +5,9 @@ import axios from "axios";
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_API;
 
 export const getPostList = async (params?: GetPostListParams) => {
-  const response = await axios.get(`${BASE_URL}/api/posts`, { params });
+  const response = await axios.get<PostList>(`${BASE_URL}/api/posts`, {
+    params,
+  });
 
   return response;
 };
