@@ -12,18 +12,19 @@ interface ILayout {
   children?: JSX.Element | JSX.Element[];
 }
 
+const NAVBAR_WIDTH = 280;
+
 export default function Layout({ children }: ILayout) {
   return (
     <Container>
       <NavBar>
-        <Box>
+        <div>
           <Logo />
           <ProfileCard />
-        </Box>
+        </div>
         <Navigation />
       </NavBar>
-      <Divider />
-      <Box>{children}</Box>
+      <ContentBox>{children}</ContentBox>
       <a href="https://github.com/kimmihi">
         <GitHubIcon
           sx={{
@@ -46,11 +47,14 @@ const Container = styled.div`
 `;
 
 const NavBar = styled.div`
-  width: 350px;
-  padding: 12px;
+  width: ${NAVBAR_WIDTH}px;
+  height: 100vh;
+  padding: 8px;
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-right: 1px solid #e6e6e6;
 `;
 
 const Divider = styled.div`
@@ -58,7 +62,9 @@ const Divider = styled.div`
   border-left: 1px solid #e6e6e6;
 `;
 
-const Box = styled.div`
+const ContentBox = styled.div`
   width: 100%;
+  min-width: 900px;
   padding: 12px;
+  margin-left: ${NAVBAR_WIDTH}px;
 `;

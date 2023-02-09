@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import colors from "src/configs/colors";
+
 interface IPostCard {
   title: string;
   content: string;
@@ -20,7 +22,7 @@ const Container = styled.div`
   padding: 12px;
   margin: 20px 0px;
   border-radius: 16px;
-  background-color: #f2f2f2;
+  background-color: #e8f3fc;
 `;
 
 const Title = styled.h2``;

@@ -9,7 +9,7 @@ import usePostList from "src/hooks/query/use-post-list";
 const DEFAULT_PAGE_SIZE = 4;
 
 const Home: NextPage = () => {
-  const [currentPage, setCurrentPage] = useState<number>(0);
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const { data: postList } = usePostList({
     currentPage,
     pageSize: DEFAULT_PAGE_SIZE,
