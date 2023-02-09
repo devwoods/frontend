@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 
-import Layout from "src/components/layout";
 import PostCard from "src/components/posts/post-card";
 
 import usePostListByCategory from "src/hooks/query/use-post-list-by-category";
@@ -20,13 +19,11 @@ const Home: NextPage = () => {
 
   console.log(posts);
   return (
-    <Layout>
-      <Container>
-        {posts?.list.map((post) => (
-          <PostCard key={post.id} title={post.title} content={post.content} />
-        ))}
-      </Container>
-    </Layout>
+    <Container>
+      {posts?.list.map((post) => (
+        <PostCard key={post.id} title={post.title} content={post.content} />
+      ))}
+    </Container>
   );
 };
 

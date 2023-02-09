@@ -2,7 +2,6 @@ import type { NextPage } from "next";
 import { useState } from "react";
 import styled from "styled-components";
 
-import Layout from "src/components/layout";
 import PostCard from "src/components/posts/post-card";
 import usePostList from "src/hooks/query/use-post-list";
 
@@ -16,13 +15,11 @@ const Home: NextPage = () => {
   });
 
   return (
-    <Layout>
-      <Container>
-        {postList?.list.map((post) => (
-          <PostCard key={post.id} title={post.title} content={post.content} />
-        ))}
-      </Container>
-    </Layout>
+    <Container>
+      {postList?.list.map((post) => (
+        <PostCard key={post.id} title={post.title} content={post.content} />
+      ))}
+    </Container>
   );
 };
 
