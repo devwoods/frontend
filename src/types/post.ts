@@ -13,5 +13,5 @@ export interface PostList {
   list: Array<Post>;
   currentPage: number;
   pageSize: number;
-  totlaPages: number;
+  totalPages: number;
 }

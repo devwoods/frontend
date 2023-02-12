@@ -12,15 +12,19 @@ export const getPostList = async (params?: GetPostListParams) => {
   return response;
 };
 
-export const getPostListByCategory = async (categoryId: number) => {
+export const getPostListByCategory = async (
+  categoryId: number,
+  params?: GetPostListParams
+) => {
   const response = await axios.get<PostList>(
-    `${BASE_URL}/api/posts/category/${categoryId}`
+    `${BASE_URL}/api/posts/category/${categoryId}`,
+    { params }
   );
 
   return response;
 };
 
-export const getPost = async (postId: number) => {
+export const getDetailPost = async (postId: number) => {
   const response = await axios.get(`${BASE_URL}/api/posts/detail/${postId}`);
 
   return response;

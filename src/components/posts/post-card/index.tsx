@@ -1,18 +1,20 @@
+import Link from "next/link";
 import styled from "styled-components";
 
-import colors from "src/configs/colors";
-
 interface IPostCard {
+  postId: number;
   title: string;
   content: string;
 }
 
-export default function PostCard({ title, content }: IPostCard) {
+export default function PostCard({ postId, title, content }: IPostCard) {
   return (
-    <Container>
-      <Title>{title}</Title>
-      <Content>{content}</Content>
-    </Container>
+    <Link href={`/posts/${postId}`}>
+      <Container>
+        <Title>{title}</Title>
+        <Content>{content}</Content>
+      </Container>
+    </Link>
   );
 }
 

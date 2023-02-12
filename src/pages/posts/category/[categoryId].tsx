@@ -1,28 +1,70 @@
 import type { NextPage } from "next";
+import type { Post } from "src/types/post";
+
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 
+import { useInfiniteScroll } from "react-use-intersection-observer-pack";
+
 import PostCard from "src/components/posts/post-card";
+import { getPostListByCategory } from "src/apis";
 
-import usePostListByCategory from "src/hooks/query/use-post-list-by-category";
+const DEFAULT_PAGE_SIZE = 4;
 
-const CONTENT =
-  "s simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desk";
 const Home: NextPage = () => {
   const router = useRouter();
-  const {
-    data: posts,
-    isLoading,
-    isError,
-  } = usePostListByCategory(Number(router.query?.categoryId) || null);
+  const categoryId = Number(router.query.categoryId || "") || undefined;
+  const [hasMore, setHasMore] = useState(true);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [postList, setPostList] = useState<Array<Post>>([]);
+  const { observedTargetRef } = useInfiniteScroll({
+    hasMore,
+    onLoadMore: () => setCurrentPage((prev) => prev + 1),
+  });
 
-  console.log(posts);
+  useEffect(() => {
+    if (categoryId === undefined) {
+      return;
+    }
+
+    const loadPostList = async () => {
+      try {
+        const response = await getPostListByCategory(categoryId, {
+          currentPage,
+          pageSize: DEFAULT_PAGE_SIZE,
+        });
+
+        const { data } = response;
+
+        if (currentPage === 1) {
+          setPostList(data.list);
+        } else {
+          setPostList((prev) => [...prev, ...data.list]);
+        }
+
+        if (currentPage > data.totalPages) {
+          setHasMore(false);
+        }
+      } catch {
+        setHasMore(false);
+      }
+    };
+
+    loadPostList();
+  }, [categoryId, currentPage]);
+
   return (
     <Container>
-      {posts?.list.map((post) => (
-        <PostCard key={post.id} title={post.title} content={post.content} />
+      {postList.map((post) => (
+        <PostCard
+          key={post.id}
+          postId={post.id}
+          title={post.title}
+          content={post.content}
+        />
       ))}
+      <div ref={observedTargetRef} />
     </Container>
   );
 };

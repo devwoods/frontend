@@ -2393,6 +2393,11 @@ react-transition-group@^4.4.5:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
+react-use-intersection-observer-pack@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/react-use-intersection-observer-pack/-/react-use-intersection-observer-pack-3.0.2.tgz#8d3799ea2cced36815da558657f8b06004f89fa8"
+  integrity sha512-UN9m7H2Qoe/Bm+QSrb5jtbeMj7L+FxmJkfK4tUj97U0sJavlzQLumPyPkXT7TIrnXysBRpyla1ZB7JReXdUHCg==
+
 react@18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
