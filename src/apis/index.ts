@@ -1,5 +1,5 @@
 import type { GetPostListParams } from "src/types/api";
-import type { PostList } from "src/types/post";
+import type { Post, PostList } from "src/types/post";
 import axios from "axios";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_API;
@@ -25,7 +25,9 @@ export const getPostListByCategory = async (
 };
 
 export const getDetailPost = async (postId: number) => {
-  const response = await axios.get(`${BASE_URL}/api/posts/detail/${postId}`);
+  const response = await axios.get<Post>(
+    `${BASE_URL}/api/posts/detail/${postId}`
+  );
 
   return response;
 };

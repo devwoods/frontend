@@ -57,14 +57,10 @@ const NavBar = styled.div`
   border-right: 1px solid #e6e6e6;
 `;
 
-const Divider = styled.div`
-  height: 100vh;
-  border-left: 1px solid #e6e6e6;
-`;
-
 const ContentBox = styled.div`
   width: 100%;
   min-width: 900px;
   padding: 12px;
+  margin-top: 32px;
   margin-left: ${NAVBAR_WIDTH}px;
 `;
