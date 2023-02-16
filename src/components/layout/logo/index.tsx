@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
 
-import colors from "src/configs/colors";
+import { colors } from "src/configs/theme";
 
 export default function Logo() {
   return (

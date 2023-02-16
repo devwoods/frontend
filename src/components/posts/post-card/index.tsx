@@ -25,6 +25,10 @@ const Container = styled.div`
   margin: 20px 0px;
   border-radius: 16px;
   background-color: #e8f3fc;
+  &:hover {
+    transform: scale(1.025);
+    transition: all 0.5s;
+  }
 `;
 
 const Title = styled.h2``;

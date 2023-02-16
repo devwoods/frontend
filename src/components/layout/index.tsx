@@ -1,12 +1,10 @@
+import { useState } from "react";
 import styled from "styled-components";
 
-import GitHubIcon from "@mui/icons-material/GitHub";
+import NavBar from "./nav-bar";
+import TopHead from "./top-head";
 
-import Logo from "./logo";
-import ProfileCard from "./profile";
-import Navigation from "./navigation";
-
-import colors from "src/configs/colors";
+import { TOP_HEAD_HEIGHT } from "src/configs/layout";
 
 interface ILayout {
   children?: JSX.Element | JSX.Element[];
@@ -15,52 +13,37 @@ interface ILayout {
 const NAVBAR_WIDTH = 280;
 
 export default function Layout({ children }: ILayout) {
+  const [isOpenNavbar, setIsOpenNavbar] = useState(false);
   return (
     <Container>
-      <NavBar>
-        <div>
-          <Logo />
-          <ProfileCard />
-        </div>
-        <Navigation />
-      </NavBar>
+      <TopHead onClickMenu={() => setIsOpenNavbar((prev) => !prev)} />
+      <NavBar open={isOpenNavbar} />
       <ContentBox>{children}</ContentBox>
-      <a href="https://github.com/kimmihi">
-        <GitHubIcon
-          sx={{
-            position: "absolute",
-            top: 10,
-            right: 10,
-            zIndex: 99,
-            fontSize: "32px",
-            color: "#333333",
-          }}
-        />
-      </a>
     </Container>
   );
 }
 
 const Container = styled.div`
-  display: flex;
   height: 100%;
 `;
 
-const NavBar = styled.div`
-  width: ${NAVBAR_WIDTH}px;
-  height: 100vh;
-  padding: 8px;
-  position: fixed;
+const FlexBox = styled.div`
   display: flex;
-  flex-direction: column;
+  margin-top: 0;
+`;
+
+const TopHeader = styled.div`
+  width: 100%;
+  height: 72px;
+  padding: 16px;
+  border-bottom: 1px solid #e6e6e6;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  border-right: 1px solid #e6e6e6;
+  margin-bottom: 0;
 `;
 
 const ContentBox = styled.div`
   width: 100%;
-  min-width: 900px;
-  padding: 12px;
-  margin-top: 32px;
-  margin-left: ${NAVBAR_WIDTH}px;
+  margin-top: ${TOP_HEAD_HEIGHT}px;
 `;

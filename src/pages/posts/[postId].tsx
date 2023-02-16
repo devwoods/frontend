@@ -4,6 +4,7 @@ import dayjs from "dayjs";
 
 import useDetailPost from "src/hooks/query/use-detail-post";
 
+import { colors } from "src/configs/theme";
 import PostContentMarkDown from "src/components/posts/content-markdown";
 
 export default function DetailPost() {
@@ -31,6 +32,12 @@ const MetadataBox = styled.div`
   border-bottom: 1px solid #e6e6e6;
 `;
 
-const Title = styled.h1``;
+const Title = styled.h1`
+  margin-top: 4px;
+  color: ${colors.primary.main};
+`;
 
-const DateText = styled.p``;
+const DateText = styled.p`
+  margin: 0;
+  color: #8c8c8c;
+`;
