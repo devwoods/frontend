@@ -25,7 +25,7 @@ export default function DetailPost() {
 }
 
 const Container = styled.div`
-  padding: 16px;
+  padding: 32px;
 `;
 
 const MetadataBox = styled.div`

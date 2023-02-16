@@ -78,8 +78,6 @@ const NavItem = styled.div`
     border-bottom: none;
     &:hover {
       color: ${colors.primary.main};
-      border-radius: 16px;
-      background-color: #cce0ff;
     }
   }
 `;

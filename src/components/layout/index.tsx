@@ -27,22 +27,6 @@ const Container = styled.div`
   height: 100%;
 `;
 
-const FlexBox = styled.div`
-  display: flex;
-  margin-top: 0;
-`;
-
-const TopHeader = styled.div`
-  width: 100%;
-  height: 72px;
-  padding: 16px;
-  border-bottom: 1px solid #e6e6e6;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 0;
-`;
-
 const ContentBox = styled.div`
   width: 100%;
   margin-top: ${TOP_HEAD_HEIGHT}px;
