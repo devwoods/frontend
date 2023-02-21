@@ -24,7 +24,7 @@ const Container = styled.div`
   width: 327px;
   height: 120px;
   margin: 20px 0px;
-  padding: 8px;
+  padding: 8px 16px;
   border-radius: 16px;
   background-color: #e8f3fc;
   &:hover {

@@ -12,8 +12,8 @@ export default function BlockquoteBlock({ children }: IBlockquoteBlock) {
 }
 
 const Container = styled.blockquote`
-  width: 80%;
   padding: 16px;
+  margin: 0 auto;
   border-radius: 12px;
   background-color: ${colors.divider.main};
 `;

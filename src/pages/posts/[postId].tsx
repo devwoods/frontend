@@ -5,7 +5,7 @@ import dayjs from "dayjs";
 import useDetailPost from "src/hooks/query/use-detail-post";
 
 import { colors } from "src/configs/theme";
-import PostContentMarkDown from "src/components/posts/content-markdown";
+import MarkDown from "src/components/markdown";
 
 export default function DetailPost() {
   const router = useRouter();
@@ -19,7 +19,9 @@ export default function DetailPost() {
         <DateText>{dayjs(data?.updated_at).format("YYYY-MM-DD")}</DateText>
         <Title>{data?.title}</Title>
       </MetadataBox>
-      <PostContentMarkDown content={data?.content ?? ""} />
+      <ContentBox>
+        <MarkDown content={data?.content ?? ""} />
+      </ContentBox>
     </Container>
   );
 }
@@ -30,6 +32,12 @@ const Container = styled.div`
 
 const MetadataBox = styled.div`
   border-bottom: 1px solid #e6e6e6;
+`;
+
+const ContentBox = styled.div`
+  padding: 32px;
+  line-height: 26px;
+  font-size: 18px;
 `;
 
 const Title = styled.h1`
