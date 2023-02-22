@@ -12,7 +12,6 @@ export default function DetailPost() {
   const postId = Number(router.query.postId) || undefined;
   const { data } = useDetailPost(postId);
 
-  console.log(data);
   return (
     <Container>
       <MetadataBox>
