@@ -11,7 +11,7 @@ on:
     branches: [main]
 
 env:
-  DOCKER_IMAGE: ghcr.io/${{ github.actor }}/blog
+  DOCKER_IMAGE: ghcr.io/${{ github.actor }}/blog-front
   VERSION: ${{ github.sha }}
   NAME: blog-front
 
